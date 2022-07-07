@@ -79,14 +79,14 @@ public class RoundEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        RoundEntity that = (RoundEntity) o;
+        RoundEntity round = (RoundEntity) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        if (season != null ? !season.equals(that.season) : that.season != null) return false;
-        if (location != null ? !location.equals(that.location) : that.location != null) return false;
-        if (polePosition != null ? !polePosition.equals(that.polePosition) : that.polePosition != null) return false;
-        if (bestLap != null ? !bestLap.equals(that.bestLap) : that.bestLap != null) return false;
-        if (date != null ? !date.equals(that.date) : that.date != null) return false;
+        if (id != null ? !id.equals(round.id) : round.id != null) return false;
+        if (season != null ? !season.equals(round.season) : round.season != null) return false;
+        if (location != null ? !location.equals(round.location) : round.location != null) return false;
+        if (polePosition != null ? !polePosition.equals(round.polePosition) : round.polePosition != null) return false;
+        if (bestLap != null ? !bestLap.equals(round.bestLap) : round.bestLap != null) return false;
+        if (date != null ? !date.equals(round.date) : round.date != null) return false;
 
         return true;
     }
