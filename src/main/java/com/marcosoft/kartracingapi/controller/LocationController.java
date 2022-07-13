@@ -8,12 +8,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("location")
 public class LocationController {
 
     @Autowired
     CrudService crudService;
+
+    @GetMapping
+    public ResponseEntity<List<LocationEntity>> getLocationList(){
+        return ResponseEntity.status(HttpStatus.OK).body(crudService.getLocationList());
+    }
+
+    @GetMapping("{locationId}")
+    public ResponseEntity<LocationEntity> getSingleLocation(@PathVariable Integer locationId){
+        return ResponseEntity.status(HttpStatus.OK).body(crudService.getSingleLocation(locationId));
+    }
 
     @PostMapping
     public ResponseEntity<ResponseObject> addLocation(@RequestBody LocationEntity location){

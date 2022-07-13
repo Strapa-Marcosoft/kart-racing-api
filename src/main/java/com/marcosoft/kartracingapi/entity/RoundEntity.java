@@ -2,6 +2,7 @@ package com.marcosoft.kartracingapi.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "round", schema = "kart_racing", catalog = "")
@@ -25,6 +26,17 @@ public class RoundEntity {
     @Basic
     @Column(name = "date")
     private Date date;
+
+    @OneToMany(mappedBy = "round")
+    private List<RoundPilotEntity> roundPilotEntityList;
+
+    public List<RoundPilotEntity> getRoundPilotEntityList() {
+        return roundPilotEntityList;
+    }
+
+    public void setRoundPilotEntityList(List<RoundPilotEntity> roundPilotEntityList) {
+        this.roundPilotEntityList = roundPilotEntityList;
+    }
 
     public Integer getId() {
         return id;

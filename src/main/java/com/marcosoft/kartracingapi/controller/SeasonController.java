@@ -8,12 +8,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("season")
 public class SeasonController {
 
     @Autowired
     CrudService crudService;
+
+    @GetMapping
+    public ResponseEntity<List<SeasonEntity>> getSeasonList(){
+        return ResponseEntity.status(HttpStatus.OK).body(crudService.getSeasonList());
+    }
+
+    @GetMapping("{seasonId}")
+    public ResponseEntity<SeasonEntity> getSingleSeason(@PathVariable Integer seasonId){
+        return ResponseEntity.status(HttpStatus.OK).body(crudService.getSingleSeason(seasonId));
+    }
 
     @PostMapping
     public ResponseEntity<ResponseObject> addSeason(@RequestBody SeasonEntity season){

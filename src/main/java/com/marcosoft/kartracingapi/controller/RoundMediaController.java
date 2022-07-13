@@ -8,11 +8,23 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("round-media")
 public class RoundMediaController {
     @Autowired
     CrudService crudService;
+
+    @GetMapping()
+    public ResponseEntity<List<RoundMediaEntity>> getRoundMediaList(){
+        return ResponseEntity.status(HttpStatus.OK).body(crudService.getRoundMediaList());
+    }
+
+    @GetMapping("{roundMediaId}")
+    public ResponseEntity<RoundMediaEntity> getSingleRoundMedia(@PathVariable Integer roundMediaId){
+        return ResponseEntity.status(HttpStatus.OK).body(crudService.getSingleRoundMedia(roundMediaId));
+    }
 
     @PostMapping
     public ResponseEntity<ResponseObject> addRoundMedia(@RequestBody RoundMediaEntity roundMedia){

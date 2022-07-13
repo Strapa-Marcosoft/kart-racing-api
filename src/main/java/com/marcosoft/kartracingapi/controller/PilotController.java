@@ -8,12 +8,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("pilot")
 public class PilotController {
 
     @Autowired
     CrudService crudService;
+
+    @GetMapping
+    public ResponseEntity<List<PilotEntity>> getPilotList(){
+        return ResponseEntity.status(HttpStatus.OK).body(crudService.getPilotList());
+    }
+
+    @GetMapping("{pilotId}")
+    public ResponseEntity<PilotEntity> getSinglePilot(@PathVariable Integer pilotId){
+        return ResponseEntity.status(HttpStatus.OK).body(crudService.getSinglePilot(pilotId));
+    }
 
     @PostMapping
     public ResponseEntity<ResponseObject> addPilot(@RequestBody PilotEntity pilot){

@@ -5,6 +5,9 @@ import com.marcosoft.kartracingapi.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class CrudService {
     @Autowired
@@ -40,6 +43,15 @@ public class CrudService {
         pilotEntityRepository.delete(pilot);
     }
 
+    public List<PilotEntity> getPilotList(){
+        return (List<PilotEntity>) pilotEntityRepository.findAll();
+    }
+
+    public PilotEntity getSinglePilot(Integer pilotId){
+        Optional<PilotEntity> pilot = pilotEntityRepository.findById(pilotId);
+        return pilot.orElse(null);
+    }
+
     public LocationEntity addLocation(LocationEntity location){
         return locationEntityRepository.save(location);
     }
@@ -50,6 +62,15 @@ public class CrudService {
 
     public void deleteLocation(LocationEntity location){
         locationEntityRepository.delete(location);
+    }
+
+    public List<LocationEntity> getLocationList(){
+        return (List<LocationEntity>) locationEntityRepository.findAll();
+    }
+
+    public LocationEntity getSingleLocation(Integer locationId){
+        Optional<LocationEntity> location = locationEntityRepository.findById(locationId);
+        return location.orElse(null);
     }
 
     public SeasonEntity addSeason(SeasonEntity season){
@@ -64,6 +85,16 @@ public class CrudService {
         seasonEntityRepository.delete(season);
     }
 
+    public List<SeasonEntity> getSeasonList(){
+        return (List<SeasonEntity>)  seasonEntityRepository.findAll();
+    }
+
+    public SeasonEntity getSingleSeason(Integer seasonId){
+        Optional<SeasonEntity> season = seasonEntityRepository.findById(seasonId);
+        return season.orElse(null);
+    }
+
+
     public SeasonScoreEntity addSeasonScore(SeasonScoreEntity seasonScore){
         return seasonScoreEntityRepository.save(seasonScore);
     }
@@ -74,6 +105,24 @@ public class CrudService {
 
     public void deleteSeasonScore(SeasonScoreEntity seasonScore){
         seasonScoreEntityRepository.delete(seasonScore);
+    }
+
+    public List<SeasonScoreEntity> getSeasonScoreList(){
+        return (List<SeasonScoreEntity>) seasonScoreEntityRepository.findAll();
+    }
+
+    public SeasonScoreEntity getSingleSeasonScore(Integer seasonScoreId){
+        Optional<SeasonScoreEntity> seasonScore = seasonScoreEntityRepository.findById(seasonScoreId);
+        return seasonScore.orElse(null);
+    }
+
+    public List<RoundEntity> getRoundList(){
+        return (List<RoundEntity>) roundEntityRepository.findAll();
+    }
+
+    public RoundEntity getSingleRound(Integer roundId){
+        Optional<RoundEntity> round = roundEntityRepository.findById(roundId);
+        return round.orElse(null);
     }
 
     public RoundEntity addRound(RoundEntity round){
@@ -100,6 +149,15 @@ public class CrudService {
         roundPilotEntityRepository.delete(roundPilot);
     }
 
+    public List<RoundPilotEntity> getRoundPilotList(){
+        return (List<RoundPilotEntity>) roundPilotEntityRepository.findAll();
+    }
+
+    public RoundPilotEntity getSingleRoundPilot(Integer roundPilotId){
+        Optional<RoundPilotEntity> roundPilot = roundPilotEntityRepository.findById(roundPilotId);
+        return roundPilot.orElse(null);
+    }
+
     public RoundMediaEntity addRoundMedia(RoundMediaEntity roundMedia){
         return roundMediaEntityRepository.save(roundMedia);
     }
@@ -110,5 +168,14 @@ public class CrudService {
 
     public void deleteRoundMedia(RoundMediaEntity roundMedia){
         roundMediaEntityRepository.delete(roundMedia);
+    }
+
+    public List<RoundMediaEntity> getRoundMediaList(){
+        return (List<RoundMediaEntity>) roundMediaEntityRepository.findAll();
+    }
+
+    public RoundMediaEntity getSingleRoundMedia(Integer roundMediaId){
+        Optional<RoundMediaEntity> roundMedia = roundMediaEntityRepository.findById(roundMediaId);
+        return roundMedia.orElse(null);
     }
 }

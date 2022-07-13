@@ -8,11 +8,23 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("round-pilot")
 public class RoundPilotController {
     @Autowired
     CrudService crudService;
+
+    @GetMapping
+    public ResponseEntity<List<RoundPilotEntity>> getRoundPilotList(){
+        return ResponseEntity.status(HttpStatus.OK).body(crudService.getRoundPilotList());
+    }
+
+    @GetMapping("{roundPilotId}")
+    public ResponseEntity<RoundPilotEntity> getSingleRoundPilot(@PathVariable Integer roundPilotId){
+        return ResponseEntity.status(HttpStatus.OK).body(crudService.getSingleRoundPilot(roundPilotId));
+    }
 
     @PostMapping
     public ResponseEntity<ResponseObject> addRoundPilot(@RequestBody RoundPilotEntity roundPilot){
