@@ -1,2 +1,4 @@
-package com.marcosoft.kartracingapi.service;public class CalculationService {
+package com.marcosoft.kartracingapi.service;
+public class CalculationService {
+
 }
