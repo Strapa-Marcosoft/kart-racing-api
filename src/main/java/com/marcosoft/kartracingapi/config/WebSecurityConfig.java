@@ -14,6 +14,7 @@ import java.util.List;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final List<String> ALLOWED_ORIGINS = List.of("*");
+    private final String ALLOWED_METHODS = "*";
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
@@ -21,6 +22,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors().configurationSource(request -> {
                     var cors = new CorsConfiguration();
                     cors.setAllowedOriginPatterns(ALLOWED_ORIGINS);
+                    cors.addAllowedMethod(ALLOWED_METHODS);
+                    cors.addAllowedHeader("*");
                     return cors;
                 }).and().csrf().disable();
     }
