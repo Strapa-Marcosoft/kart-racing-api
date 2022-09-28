@@ -3,7 +3,7 @@ package com.marcosoft.kartracingapi.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "location", schema = "kart_racing", catalog = "")
+@Table(name = "location")
 public class LocationEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

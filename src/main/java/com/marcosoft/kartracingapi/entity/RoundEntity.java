@@ -7,7 +7,7 @@ import java.sql.Date;
 
 @Entity
 @Data
-@Table(name = "round", schema = "kart_racing", catalog = "")
+@Table(name = "round")
 public class RoundEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

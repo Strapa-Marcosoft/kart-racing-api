@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Data
 @Builder
-@Table(name = "round_pilot", schema = "kart_racing", catalog = "")
+@Table(name = "round_pilot")
 public class RoundPilotEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
