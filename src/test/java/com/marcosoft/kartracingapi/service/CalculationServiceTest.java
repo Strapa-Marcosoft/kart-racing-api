@@ -1,13 +1,12 @@
+package com.marcosoft.kartracingapi.service;
+
 import com.marcosoft.kartracingapi.entity.RoundPilotEntity;
-import com.marcosoft.kartracingapi.service.CalculationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
 
 
 public class CalculationServiceTest {
