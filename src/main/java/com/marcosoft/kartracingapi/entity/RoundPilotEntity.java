@@ -1,7 +1,9 @@
 package com.marcosoft.kartracingapi.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -9,6 +11,8 @@ import javax.persistence.*;
 @Data
 @Builder
 @Table(name = "round_pilot", schema = "kart_racing", catalog = "")
+@NoArgsConstructor
+@AllArgsConstructor
 public class RoundPilotEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

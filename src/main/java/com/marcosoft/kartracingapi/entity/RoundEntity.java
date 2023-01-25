@@ -1,13 +1,19 @@
 package com.marcosoft.kartracingapi.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
 @Data
-@Table(name = "round", schema = "kart_racing", catalog = "")
+@Builder
+@Table(name = "round")
+@NoArgsConstructor
+@AllArgsConstructor
 public class RoundEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
